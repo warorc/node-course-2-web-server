@@ -24,9 +24,9 @@ app.use((req, res, next) => {
 });
 
 
-app.use((req, res, next) => {
-  res.render('maintanence.hbs');
-});
+// app.use((req, res, next) => {
+//   res.render('maintanence.hbs');
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -55,6 +55,13 @@ app.get('/bad', (req, res) => {
   res.send({
     errorMessage: 'Unable to run',
   });
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+  pageTitle: 'Projects Page',
+  text: 'Profile page'
+});
 });
 
 app.listen(port, () => {
